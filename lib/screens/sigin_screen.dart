@@ -4,6 +4,7 @@ import '../data/app_colors.dart';
 import '../data/app_strings.dart';
 import '../data/app_text_styles.dart';
 import '../widgets/app_progress_indicator.dart';
+import 'signup_screen.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -293,35 +294,37 @@ class _SignInScreenState extends State<SignInScreen> {
                 
                   ],
                 ),
-                Expanded(
-                  child: SizedBox(
-                    height: height / 20,
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,                
-                  child: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: AppStrings.dontHaveAccountText,
-                              style: AppTextStyles.s16w400l24
-                                  .copyWith(color: AppColors.subtitleColor),
-                            ),
-                            TextSpan(
-                              text: ' '+AppStrings.signUp,
-                              style: AppTextStyles.s16w700l24
-                                  .copyWith(color: AppColors.secondaryColor),
-                            ),
-                          ],
-                        ),
-                      ),
-                ),
-                SizedBox(
-                  height: height / 50
-                ),
               ],
+            ),
+          ),
+        ),bottomSheet:Padding(
+          padding: const EdgeInsets.only(bottom:20.0),
+          child: Container(width: width,
+            child: GestureDetector(
+              onTap: (){
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                        builder: (context) => const SignUpScreen(),
+                      ),
+                      (Route<dynamic> route) => false);
+              },
+              child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: AppStrings.dontHaveAccountText,
+                          style: AppTextStyles.s16w400l24
+                              .copyWith(color: AppColors.subtitleColor),
+                        ),
+                        TextSpan(
+                          text: ' '+AppStrings.signUp,
+                          style: AppTextStyles.s16w700l24
+                              .copyWith(color: AppColors.secondaryColor),
+                        ),
+                      ],
+                    ),
+                  ),
             ),
           ),
         ),

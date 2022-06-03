@@ -4,6 +4,7 @@ import '../data/app_colors.dart';
 import '../data/app_strings.dart';
 import '../data/app_text_styles.dart';
 import '../widgets/app_progress_indicator.dart';
+import 'sigin_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -340,23 +341,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),bottomSheet:Padding(
           padding: const EdgeInsets.only(bottom:20.0),
           child: Container(width: width,
-            child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: AppStrings.alreadyHaveAnAccount,
-                        style: AppTextStyles.s16w400l24
-                            .copyWith(color: AppColors.subtitleColor),
+            child: GestureDetector(
+              onTap: (){
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                        builder: (context) => const SignInScreen(),
                       ),
-                      TextSpan(
-                        text: ' '+AppStrings.signIn,
-                        style: AppTextStyles.s16w700l24
-                            .copyWith(color: AppColors.secondaryColor),
-                      ),
-                    ],
+                      (Route<dynamic> route) => false);
+              },
+              child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: AppStrings.alreadyHaveAnAccount,
+                          style: AppTextStyles.s16w400l24
+                              .copyWith(color: AppColors.subtitleColor),
+                        ),
+                        TextSpan(
+                          text: ' '+AppStrings.signIn,
+                          style: AppTextStyles.s16w700l24
+                              .copyWith(color: AppColors.secondaryColor),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
+            ),
           ),
         ),
       ),

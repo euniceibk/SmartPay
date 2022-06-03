@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay_app/data/app_colors.dart';
-import 'package:smart_pay_app/screens/set_pin_screen.dart';
-import 'package:smart_pay_app/screens/signup_screen.dart';
-import 'package:smart_pay_app/screens/signup_success_screen.dart';
 import 'package:smart_pay_app/screens/splash_screen.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SmartPay App',
       theme: ThemeData(scaffoldBackgroundColor: AppColors.white),
-      home: const SignUpSuccessScreen(),
+      home: const SplashScreen(),
     );
   }
 }
